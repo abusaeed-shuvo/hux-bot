@@ -27,12 +27,19 @@ async def on_ready():
 
 @bot.event
 async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandInvokeError):
+        error = error.original
+
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You don't have permission to do this!")
     elif isinstance(error, commands.MemberNotFound):
         await ctx.send("User not found!")
     elif isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(f"Missing argument: `{error.param.name}`")
+    elif isinstance(error, discord.Forbidden):
+        await ctx.send("I don't have permission to do that. Check my role is above the target role.")
+    elif isinstance(error, commands.BadArgument):
+        await ctx.send(f"Command has a bad argument. Check all parameter are correct.")
     elif isinstance(error, commands.CommandNotFound):
         pass
 

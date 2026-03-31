@@ -31,14 +31,13 @@ class Fun(commands.Cog):
             content = message.content.lower()
             
             if "is this true?" in content:
-                text_responses=["Yes","No","Maybe","Ask Hog"]
+                text_responses=["Yes","No","Maybe","Ask Hog", "Of course", "I dont know", "Probably"]
                 gif_responses=["https://tenor.com/bU4oZ.gif"]
                 
                 if random.random() < 0.5:
                     await message.reply(random.choice(text_responses))
                 else:
                     await message.reply(random.choice(gif_responses))
-        await self.bot.process_commands(message)
 
 async def setup(bot):
     await bot.add_cog(Fun(bot))

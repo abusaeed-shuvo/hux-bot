@@ -19,7 +19,7 @@ class Moderation(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(moderate_members = True)
-    async def unmute(self, ctx, user: discord.Member):
+    async def untimeout(self, ctx, user: discord.Member):
         await user.timeout(None)
         await ctx.send(f"{user.name} has been unmuted.")
 

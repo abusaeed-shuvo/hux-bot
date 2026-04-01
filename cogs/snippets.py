@@ -139,7 +139,17 @@ class Snippets(commands.Cog):
 
     @snippet.command(aliases = ["au"])
     async def author(self, ctx, user: discord.Member):
-        pass
+        group_result = await self.bot.db.get_all_where("snippets", "author_id", user.id)
+        message = ""
+        if group_result == []:
+            message = "This user hasn't made any snippets. "
+            return
+        for result in group_result:
+            if result[3] == 1:
+                message += f"— _*{result[0]}*_ :lock:\n"
+            else:
+                message += f"— _*{result[0]}*_ \n"
+        await ctx.send(message)       
 
 
 

@@ -7,12 +7,12 @@ class Projects(commands.Cog):
         # Example data (you can expand this)
         self.projects = {
             "lufus": {
-                "repo": "https://github.com/Hog185/Lufus",
-                "release": "https://github.com/Hog185/Lufus/releases/latest"
+                "repo": "<https://github.com/Hog185/Lufus>",
+                "release": "<https://github.com/Hog185/Lufus/releases/latest>"
             },
             "hux-bot": {
-                "repo": "https://github.com/Saber0324/projects-bot",
-                "release": "https://github.com/Saber0324/projects-bot/releases/latest"
+                "repo": "<https://github.com/Saber0324/projects-bot>",
+                "release": "<https://github.com/Saber0324/projects-bot/releases/latest>"
             }
         }
 
